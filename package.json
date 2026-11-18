@@ -1,0 +1,37 @@
+{
+  "name": "db-easy-builder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DB Easy Builder — visual, no-SQL-required database designer. Canva/Figma-like experience for designing databases.",
+  "scripts": {
+    "dev": "concurrently -k -n server,client \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:client": "vite",
+    "dev:server": "node server/index.js",
+    "build": "vite build",
+    "test": "node scripts/smoke-test.mjs",
+    "test:locales": "node scripts/check-locales.mjs",
+    "test:ui": "node scripts/ui-smoke.mjs",
+    "start": "node server/index.js",
+    "serve": "npm run build && node server/index.js"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "framer-motion": "^11.15.0",
+    "lucide-react": "^0.462.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "vite": "^5.4.11"
+  }
+}
