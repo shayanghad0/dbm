@@ -1,0 +1,101 @@
+{
+  "format": "dbeb-json",
+  "version": 1,
+  "database": {
+    "name": "CRM",
+    "engine": "postgresql"
+  },
+  "tables": [
+    {
+      "name": "companies",
+      "note": "Organizations your team sells to",
+      "x": 60,
+      "y": 60,
+      "columns": [
+        { "name": "id", "type": "integer", "primaryKey": true, "autoIncrement": true, "required": true },
+        { "name": "name", "type": "string", "length": "160", "required": true },
+        { "name": "industry", "type": "string", "length": "80" },
+        { "name": "website", "type": "string", "length": "190" },
+        { "name": "country", "type": "string", "length": "2" },
+        { "name": "created_at", "type": "datetime", "defaultValue": "CURRENT_TIMESTAMP" }
+      ]
+    },
+    {
+      "name": "contacts",
+      "note": "People working at companies",
+      "x": 380,
+      "y": 60,
+      "columns": [
+        { "name": "id", "type": "integer", "primaryKey": true, "autoIncrement": true, "required": true },
+        { "name": "company_id", "type": "integer", "required": true },
+        { "name": "full_name", "type": "string", "length": "120", "required": true },
+        { "name": "email", "type": "string", "length": "190", "unique": true },
+        { "name": "phone", "type": "string", "length": "40" },
+        { "name": "title", "type": "string", "length": "80" },
+        { "name": "created_at", "type": "datetime", "defaultValue": "CURRENT_TIMESTAMP" }
+      ]
+    },
+    {
+      "name": "deals",
+      "note": "Sales opportunities",
+      "x": 700,
+      "y": 60,
+      "columns": [
+        { "name": "id", "type": "integer", "primaryKey": true, "autoIncrement": true, "required": true },
+        { "name": "company_id", "type": "integer", "required": true },
+        { "name": "contact_id", "type": "integer" },
+        { "name": "title", "type": "string", "length": "160", "required": true },
+        { "name": "amount", "type": "decimal", "length": "12,2", "defaultValue": "0" },
+        { "name": "stage", "type": "enum", "enumValues": ["lead", "qualified", "proposal", "won", "lost"], "defaultValue": "lead" },
+        { "name": "expected_close", "type": "date" },
+        { "name": "created_at", "type": "datetime", "defaultValue": "CURRENT_TIMESTAMP" }
+      ]
+    },
+    {
+      "name": "activities",
+      "note": "Calls, meetings and follow-ups",
+      "x": 380,
+      "y": 400,
+      "columns": [
+        { "name": "id", "type": "integer", "primaryKey": true, "autoIncrement": true, "required": true },
+        { "name": "contact_id", "type": "integer" },
+        { "name": "type", "type": "enum", "enumValues": ["call", "email", "meeting", "note"], "required": true },
+        { "name": "subject", "type": "string", "length": "160", "required": true },
+        { "name": "body", "type": "text" },
+        { "name": "due_at", "type": "datetime" },
+        { "name": "done", "type": "boolean", "defaultValue": "false" },
+        { "name": "created_at", "type": "datetime", "defaultValue": "CURRENT_TIMESTAMP" }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": { "table": "contacts", "column": "company_id" },
+      "to": { "table": "companies", "column": "id" },
+      "type": "1-n",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION"
+    },
+    {
+      "from": { "table": "deals", "column": "company_id" },
+      "to": { "table": "companies", "column": "id" },
+      "type": "1-n",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION"
+    },
+    {
+      "from": { "table": "deals", "column": "contact_id" },
+      "to": { "table": "contacts", "column": "id" },
+      "type": "1-n",
+      "onDelete": "SET NULL",
+      "onUpdate": "NO ACTION"
+    },
+    {
+      "from": { "table": "activities", "column": "contact_id" },
+      "to": { "table": "contacts", "column": "id" },
+      "type": "1-n",
+      "onDelete": "SET NULL",
+      "onUpdate": "NO ACTION"
+    }
+  ]
+}

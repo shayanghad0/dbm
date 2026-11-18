@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  AUTHOR
+  EDITOR
+  ADMIN
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  role      Role      @default(AUTHOR)
+  bio       String?
+  createdAt DateTime  @default(now())
+  posts     Post[]
+  comments  Comment[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  slug  String @unique
+  posts Post[]
+}
+
+model Post {
+  id          Int       @id @default(autoincrement())
+  title       String
+  slug        String    @unique
+  body        String?
+  published   Boolean   @default(false)
+  authorId    Int
+  categoryId  Int?
+  createdAt   DateTime  @default(now())
+  author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category    Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  comments    Comment[]
+  tags        PostTag[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  body      String
+  postId    Int
+  authorId  Int?
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author    User?    @relation(fields: [authorId], references: [id], onDelete: SetNull)
+}
+
+model Tag {
+  id    Int       @id @default(autoincrement())
+  name  String    @unique
+  slug  String    @unique
+  posts PostTag[]
+}
+
+model PostTag {
+  postId Int
+  tagId  Int
+  post   Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag    Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+}
