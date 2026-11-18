@@ -1,0 +1,60 @@
+{
+  "examples": [
+    {
+      "id": "online-shop-mysql",
+      "filename": "online-shop.mysql.sql",
+      "title": "Online Shop — MySQL",
+      "engine": "mysql",
+      "format": "sql",
+      "importable": true
+    },
+    {
+      "id": "online-shop-postgresql",
+      "filename": "online-shop.postgresql.sql",
+      "title": "Online Shop — PostgreSQL",
+      "engine": "postgresql",
+      "format": "sql",
+      "importable": true
+    },
+    {
+      "id": "school-sqlite",
+      "filename": "school.sqlite.sql",
+      "title": "School System — SQLite",
+      "engine": "sqlite",
+      "format": "sql",
+      "importable": true
+    },
+    {
+      "id": "blog-prisma",
+      "filename": "blog.prisma",
+      "title": "Blog — Prisma",
+      "engine": "postgresql",
+      "format": "prisma",
+      "importable": true
+    },
+    {
+      "id": "crm-json",
+      "filename": "crm.json",
+      "title": "CRM — JSON schema",
+      "engine": "postgresql",
+      "format": "json",
+      "importable": true
+    },
+    {
+      "id": "online-shop-markdown",
+      "filename": "online-shop.md",
+      "title": "Online Shop — Markdown docs",
+      "engine": "mysql",
+      "format": "markdown",
+      "importable": false
+    },
+    {
+      "id": "online-shop-mongodb",
+      "filename": "online-shop.mongodb.js",
+      "title": "Online Shop — MongoDB (mongosh)",
+      "engine": "mongodb",
+      "format": "mongosh",
+      "importable": false
+    }
+  ]
+}
