@@ -320,5 +320,10 @@
     "TOO_MANY_SORT_KEYS": "حداکثر یک کلید Sort مجاز است.",
     "RELATION_FIELDS_REQUIRED": "ستون مبدأ و مقصد را انتخاب کن.",
     "RELATION_TABLES_REQUIRED": "جدول مبدأ و مقصد را انتخاب کن."
+  },
+  "footer": {
+    "madeBy": "ساخته شده توسط",
+    "author": "شایان قدمیان",
+    "repo": "کد منبع"
   }
 }

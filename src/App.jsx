@@ -7,6 +7,7 @@ import { useHashRoute } from "./lib/router";
 import { BuilderProvider, useBuilder } from "./features/builder/BuilderContext";
 import { Topbar } from "./components/layout/topbar";
 import { Dock } from "./components/ui/dock";
+import { AppFooter } from "./components/layout/footer";
 import { WelcomePage } from "./features/welcome/WelcomePage";
 import { BuilderPage } from "./features/builder/BuilderPage";
 import { DiagramPage } from "./features/diagram/DiagramPage";
@@ -62,11 +63,14 @@ function Shell() {
     { key: "ai", icon: Sparkles, label: t("nav.ai") },
   ];
 
+  const dockVisible = hasSchema && route !== "home";
+
   return (
     <div className="min-h-dvh">
       <Topbar route={route} navigate={navigate} />
       <main className="pt-14">{pages[route] || <WelcomePage navigate={navigate} />}</main>
-      {hasSchema && route !== "home" && <Dock items={dockItems} active={route} onSelect={navigate} />}
+      <AppFooter dockVisible={dockVisible} />
+      {dockVisible && <Dock items={dockItems} active={route} onSelect={navigate} />}
     </div>
   );
 }

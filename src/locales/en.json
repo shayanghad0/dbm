@@ -320,5 +320,10 @@
     "TOO_MANY_SORT_KEYS": "At most one sort key is allowed.",
     "RELATION_FIELDS_REQUIRED": "Select both source and target columns.",
     "RELATION_TABLES_REQUIRED": "Select source and target tables."
+  },
+  "footer": {
+    "madeBy": "Made by",
+    "author": "Shayan Ghadamian",
+    "repo": "Source code"
   }
 }
