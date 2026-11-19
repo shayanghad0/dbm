@@ -40,6 +40,33 @@ function Shell() {
     return () => window.removeEventListener("keydown", onKey);
   }, [undo, redo]);
 
+  useEffect(() => {
+    const appName = t("app.name") || "DB Easy Builder";
+    const sectionLabels = {
+      home: null,
+      builder: t("nav.tables"),
+      diagram: t("nav.diagram"),
+      templates: t("nav.templates"),
+      import: t("nav.import"),
+      export: t("nav.export"),
+      ai: t("nav.ai"),
+    };
+    const section = sectionLabels[route];
+    document.title = section ? `${section} | ${appName}` : `${appName} — Visual Database Designer (No SQL Required)`;
+
+    const descriptions = {
+      home: "DB Easy Builder is a visual database designer for 13 engines. Create tables and relationships, import existing schemas, and export production-ready SQL, Prisma, JSON, and documentation without writing SQL.",
+      builder: "Design and edit database tables, columns, and relationships visually in DB Easy Builder.",
+      diagram: "Visualize your database schema and relationships with an interactive diagram in DB Easy Builder.",
+      templates: "Start from ready-made database templates and customize schemas quickly in DB Easy Builder.",
+      import: "Import existing SQL, JSON, or Prisma schemas into DB Easy Builder to visualize and edit them.",
+      export: "Export your database design to SQL, Prisma, JSON, Markdown, and engine-specific formats with DB Easy Builder.",
+      ai: "Use the AI assistant in DB Easy Builder to help generate and refine database schemas.",
+    };
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute("content", descriptions[route] || descriptions.home);
+  }, [route, t]);
+
   const pages = {
     home: <WelcomePage navigate={navigate} />,
     builder: <BuilderPage navigate={navigate} />,

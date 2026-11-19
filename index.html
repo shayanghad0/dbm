@@ -3,15 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DB Easy Builder — Create, edit, import and export databases visually. No SQL required." />
-    <title>DB Easy Builder</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366F1'/%3E%3Cstop offset='1' stop-color='%238B5CF6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cellipse cx='32' cy='18' rx='17' ry='8' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M15 18v28c0 4.4 7.6 8 17 8s17-3.6 17-8V18' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M15 32c0 4.4 7.6 8 17 8s17-3.6 17-8' fill='none' stroke='white' stroke-width='4'/%3E%3C/svg%3E" />
+    <title>DB Easy Builder — Visual Database Designer (No SQL Required)</title>
+    <meta
+      name="description"
+      content="DB Easy Builder is a visual database designer for 13 engines. Create tables and relationships, import existing schemas, and export production-ready SQL, Prisma, JSON, and documentation without writing SQL."
+    />
+    <meta
+      name="keywords"
+      content="database designer, visual database builder, schema designer, ER diagram, SQL generator, no SQL required, MySQL, PostgreSQL, SQLite, MongoDB, Prisma schema, database modeling, import export schema, DB Easy Builder"
+    />
+    <meta name="author" content="Shayan Ghadamian" />
+    <meta name="creator" content="Shayan Ghadamian" />
+    <meta name="publisher" content="Shayan Ghadamian" />
+    <meta name="application-name" content="DB Easy Builder" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="canonical" href="https://shayanghad0.github.io/dbm/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DB Easy Builder" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="DB Easy Builder — Visual Database Designer (No SQL Required)" />
+    <meta
+      property="og:description"
+      content="Design databases visually for 13 engines. Build tables and relationships, import schemas, and export production-ready SQL, Prisma, JSON, and docs."
+    />
+    <meta property="og:url" content="https://shayanghad0.github.io/dbm/" />
+    <meta property="og:image" content="https://shayanghad0.github.io/dbm/og-image.svg" />
+    <meta property="og:image:alt" content="DB Easy Builder — visual database designer and schema export tool" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DB Easy Builder — Visual Database Designer (No SQL Required)" />
+    <meta
+      name="twitter:description"
+      content="Design tables and relationships visually for 13 database engines, then export production-ready schemas without writing SQL."
+    />
+    <meta name="twitter:image" content="https://shayanghad0.github.io/dbm/og-image.svg" />
+    <meta name="twitter:image:alt" content="DB Easy Builder — visual database designer and schema export tool" />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="./sitemap.xml" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://shayanghad0.github.io/dbm/#website",
+            "url": "https://shayanghad0.github.io/dbm/",
+            "name": "DB Easy Builder",
+            "description": "Visual database designer for 13 engines with import and export support.",
+            "inLanguage": ["en", "fa"],
+            "publisher": {
+              "@id": "https://shayanghad0.github.io/dbm/#person"
+            }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://shayanghad0.github.io/dbm/#webapp",
+            "name": "DB Easy Builder",
+            "alternateName": "DB Easy Builder — Visual Database Designer",
+            "url": "https://shayanghad0.github.io/dbm/",
+            "image": "https://shayanghad0.github.io/dbm/og-image.svg",
+            "description": "A visual, no-SQL-required database designer. Model tables and relationships for 13 database engines, import existing schemas, and export production-ready outputs.",
+            "applicationCategory": "DeveloperApplication",
+            "applicationSubCategory": "Database Design Tool",
+            "operatingSystem": "Any",
+            "browserRequirements": "Requires JavaScript and a modern web browser",
+            "isAccessibleForFree": true,
+            "inLanguage": ["en", "fa"],
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "author": {
+              "@id": "https://shayanghad0.github.io/dbm/#person"
+            },
+            "creator": {
+              "@id": "https://shayanghad0.github.io/dbm/#person"
+            },
+            "featureList": [
+              "Visual table and relationship design",
+              "Support for 13 database engines",
+              "Schema import and export",
+              "SQL, Prisma, JSON, and Markdown outputs",
+              "Templates and diagram view",
+              "English and Farsi interface with RTL/LTR support"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://shayanghad0.github.io/dbm/#person",
+            "name": "Shayan Ghadamian",
+            "url": "https://github.com/shayanghad0"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
